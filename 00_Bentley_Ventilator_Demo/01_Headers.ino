@@ -7,9 +7,9 @@
 
 //------------ BMP 180 PRESSURE SENSOR HEADERS -----------------\\
 #include <Wire.h>
-#include <SFE_BMP180.h>
 
-SFE_BMP180 bmp180;
+
+
 
 
 //---------------- LCD HEADERS ----------------\\

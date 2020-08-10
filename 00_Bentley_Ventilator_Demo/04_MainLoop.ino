@@ -12,11 +12,11 @@ void loop()
  // Grapher();
  ReadPots();
  MotorReset();
-   PressureSensors();
+
  }
 
 
- //PressureSensors();
+ 
  //I2C_Scanner();
 
 }
