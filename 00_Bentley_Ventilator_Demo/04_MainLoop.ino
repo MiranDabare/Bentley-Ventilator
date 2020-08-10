@@ -4,14 +4,18 @@ void loop()
  while (StartButton == HIGH)
  {
   Motor();
+
  }
 
   while(StartButton == LOW)
  {
+ 
   Pos=8;
  // Grapher();
  ReadPots();
  MotorReset();
+  MotorSpeedDisp();
+//  debugger ();
 // Grid();
 
 
@@ -19,7 +23,7 @@ void loop()
 
 
  
- //I2C_Scanner();
+// //I2C_Scanner();
 
 }
 
@@ -29,8 +33,9 @@ void loop()
 void MotorReset(){
     while (CurrentVolPos < MinVolPos){ // this returns the piston to the middle max position from the LHS
     //  break;
-     motor.rotate(50,CW);
+     motor.rotate(70,CW);
      ReadPots();
+
      Pos = 99;
 
       if (CurrentVolPos >= MinVolPos -500 && CurrentVolPos <= MinVolPos +500){
@@ -47,9 +52,10 @@ void MotorReset(){
   
 
       ReadPots();
+
       
-     motor.rotate(50,CCW);
-            Pos = 11;
+     motor.rotate(70,CCW);
+            Pos = 15;
 
      if (CurrentVolPos >= MinVolPos -500 && CurrentVolPos <= MinVolPos +500){
       motor.stop();// stop the motor

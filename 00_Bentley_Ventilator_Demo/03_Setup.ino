@@ -19,15 +19,11 @@ void setup()
     tft.fillRect(140, 10, 190, 25, WHITE);
     tft.setCursor(150, 15); 
     tft.setTextColor(BLACK); tft.setTextSize(2); // set parameters for y axis labels
-    tft.print("Controller");  // "0" at center of ya axis
+    tft.print("Adoooh");  // "0" at center of ya axis
 
 
-
-  
-
-////  tftDrawGraphObjects(); //draw graph objects
-//
-//  InitialCalculations();
+  InitialCalculations();
+    MotorSpeedDisp();
 
 //------------------- MOTOR SETUP-------------------------------\\
 
@@ -52,7 +48,7 @@ void setup()
    ads.begin();
    ReadPots();
    
-  // MotorSetup();
+   MotorSetup();
 //Grid();
 
   Serial.println("Setup Done");

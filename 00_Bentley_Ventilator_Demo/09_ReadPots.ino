@@ -1,6 +1,6 @@
 void ReadPots(){
 
-   
+//   MotorSpeedDisp();
    int ADCScale = 26000;    
    
   StartButton = digitalRead(StartButtonPin);
@@ -24,7 +24,7 @@ void ReadPots(){
 
 //--------MAPPING ------------\\
 
-  BPM         = map(BPMRaw,         0, ADCScale,  0,         30);                           // BREATHS PER MINUTE SETTING
+  BPM         = map(BPMRaw,         0, ADCScale, 5 ,         20);                           // BREATHS PER MINUTE SETTING
   Ratio       = map(RatioRaw,       0, ADCScale,  1,          4);                       // EXHALE RATIO
   FlowRate    = map(SetFlowRateRaw, 0, ADCScale, 0, MaxMotorFlowRate); //FLOWRATE IN ML/S
 
@@ -60,21 +60,13 @@ if (StartButton == LOW)
    digitalWrite(GreenLED, LOW);
 }
 
-//debugger ();
+debugger ();
 
    LoopTime = (millis() - StartTime);
 
-    MotorSpeedDisp ();
+   
 
-    OMotorSpeed=MotorSpeed;
-ODispVol=DispVol;
-OInhaleTime=InhaleTime;
-ORatio=Ratio;
-OBPM=BPM;
-OFlowRate=FlowRate;
 
-OGraphMenu = GraphMenu;
-OPlotMenu =PlotMenu;
 
 }
 

@@ -1,6 +1,6 @@
-void MotorSpeedDisp ()
+void MotorSpeedDisp()
 {
-
+// Serial.println("Im here");
 int XGap = 230;
 int TextSize = 3;
 int NumberSize = 6;
@@ -153,6 +153,16 @@ int NumberSize = 6;
 //   
 
 }
+
+    OMotorSpeed=MotorSpeed;
+ODispVol=DispVol;
+OInhaleTime=InhaleTime;
+ORatio=Ratio;
+OBPM=BPM;
+OFlowRate=FlowRate;
+
+OGraphMenu = GraphMenu;
+OPlotMenu =PlotMenu;
 
 }
 
