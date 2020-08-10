@@ -19,46 +19,41 @@ void Motor()
    
 
 
-
-
-
-
-while (LoopTime >= 0 && LoopTime <= InhaleTime)
+  while (LoopTime >= 0 && LoopTime <= InhaleTime)
 {
- 
- motor.rotate(70,CCW);
-    Pos =4;
-     ReadPots();
-  while (CurrentVolPos <= MinVolPos + 500 && CurrentVolPos >= MinVolPos - 500)
-  {
-    motor.stop();
-   // delay(1000);
-    Pos = 66;
-    ReadPots();
-
-    if (LoopTime > InhaleTime){
-      motor.stop();
-      break;
-      
-    }
-  }
-
-    
-    
-   // Grapher();
-   if (StartButton == LOW){
-    
-    break;
-   }
+  MotorInhale ();
 }
+
 
 
 while (LoopTime > InhaleTime && LoopTime <= CycleTime) //EXHALING TIME
 {
-  motor.rotate(MotorSpeed,CW); //FILL THE BELLOW
+  ReadPots();
+  MotorReset();
+ 
+    Pos =4;
+   
+  }
+
+
+  if (LoopTime >= CycleTime  )
+{
+  LoopTime = 0.0;
+ 
+}
+
+}
+
+
+
+void MotorInhale ()
+{
+  
+  
+ motor.rotate(MotorSpeed,CW); //FILL THE BELLOW
   
   Pos=3;
-   ReadPots();
+ ReadPots();
    
 //  while (CurrentVolPos >= SetVolL - 500 && CurrentVolPos <= SetVolL + 500)
 while (CurrentVolPos >= SetVolL)
@@ -67,22 +62,25 @@ while (CurrentVolPos >= SetVolL)
      Pos = 55;
       ReadPots();
 
-    if (LoopTime > CycleTime){
+    if (LoopTime > InhaleTime){
       motor.stop();
       break;
     }
+     
   }
 
-  if (LoopTime >= CycleTime || AirwayPressure < TrigPressure  )
+}
+
+void MotorExhale ()
 {
-  LoopTime = 0.0;
- 
-}
-
-if (StartButton == LOW){
-    break;
-   }
-
-}
-
+   Pos = 66;
+   ReadPots();
+  motor.rotate(40,CCW);
+  
+ while (CurrentVolPos <= MinVolPos + 500 && CurrentVolPos >= MinVolPos - 500)
+  {
+    ReadPots();
+    motor.stop();
+  }
+  
 }

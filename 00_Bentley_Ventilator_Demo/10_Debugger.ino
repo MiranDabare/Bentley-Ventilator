@@ -21,12 +21,12 @@ void debugger (){
 //  
 //   Serial.print ("Pressure: ");     Serial.print( AirwayPressure);      Serial.print (" ");
 // 
-//   Serial.print ("Cycle Time: ");     Serial.print(CycleTime);      Serial.print (" ");
-//   Serial.print ("Loop Time: ");     Serial.print(LoopTime);      Serial.print (" ");
-//   Serial.print ("Inhale Time: ");     Serial.print(InhaleTime);      Serial.print (" ");
+   Serial.print ("Cycle Time: ");     Serial.print(CycleTime);      Serial.print (" ");
+   Serial.print ("Loop Time: ");     Serial.print(LoopTime);      Serial.print (" ");
+   Serial.print ("Inhale Time: ");     Serial.print(InhaleTime);      Serial.print (" ");
   
 //  Serial.print ("Swtch: ");     Serial.print(StartButton);   Serial.print (" ");
-//  Serial.print ("Code Pos: ");     Serial.print(Pos);  
+  Serial.print ("Code Pos: ");     Serial.print(Pos);  
 Serial.println (" ");
 
       
