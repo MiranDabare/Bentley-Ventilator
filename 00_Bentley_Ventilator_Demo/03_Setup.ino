@@ -19,7 +19,7 @@ void setup()
     tft.fillRect(140, 10, 190, 25, WHITE);
     tft.setCursor(150, 15); 
     tft.setTextColor(BLACK); tft.setTextSize(2); // set parameters for y axis labels
-    tft.print("Adoooh");  // "0" at center of ya axis
+//    tft.print("Adoooh");  // "0" at center of ya axis
 
 
   InitialCalculations();

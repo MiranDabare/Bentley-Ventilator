@@ -1,12 +1,14 @@
 void loop()
 {
-
+Alarms();
+ 
+ 
  while (StartButton == HIGH)
  {
   Motor();
 
  }
-
+Alarms();
   while(StartButton == LOW)
  {
  
