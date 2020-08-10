@@ -1,11 +1,8 @@
-void Alarms(){
-
+void Alarms()
+{
 
   MotorStarted ();
   MotorStopped ();
-
-
-  
 }
 
 
@@ -22,7 +19,7 @@ void MotorStarted ()
   
         delay(1000);
         OStartButton=HIGH;
-        tft.fillRect(60,100, 350,70, BLACK);
+       OneTimeDisplay();
       }
 
 
@@ -42,7 +39,7 @@ void MotorStopped ()
   
         delay(1000);
         OStartButton=LOW;
-         tft.fillRect(60,100, 350,70, BLACK);
+            OneTimeDisplay();
       }
   
 }
