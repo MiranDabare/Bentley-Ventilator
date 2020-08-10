@@ -95,3 +95,4 @@ int Buzzer = 22;
 
 int RedLED = 28;
 unsigned long CycleTime = 0.0;
+unsigned long OCycleTime = 0.0;

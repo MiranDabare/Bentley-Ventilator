@@ -52,9 +52,10 @@ String  GraphName     = "Pressure(cmH2O)";
    float  SpeedVal      = 0.0;          // VARIABLE INITIALIZATION
   // int16_t  VolumeVal     = 0.0;        // VARIABLE INITIALIZATION
    float  MotorSpeed    = 0.0;       // VARIABLE INITIALIZATION
+    float  OMotorSpeed    = 0.0;  
    float  Ratio  = 0.0;
 
-   float  OMotorSpeed      = 0.0;       // VARIABLE INITIALIZATION
+//   float  OMotorSpeed      = 0.0;       // VARIABLE INITIALIZATION
    float  ORatio           = 0.0;
    float  OInhaleTime    = 500.0; // INSERT THE INHALATION DELAY
    float OFlowRate = 0.0;

@@ -51,7 +51,7 @@ if (StartButton == LOW)
    digitalWrite(GreenLED, LOW);
 }
 
-debugger ();
+//debugger ();
 
    LoopTime = (millis() - StartTime);
 
