@@ -45,7 +45,7 @@ void ReadPots(){
   
  // FlowRate    = (DispVol/InhaleTime)*1000; //FLOWRATE IN ML/S
 
-  MotorSpeed  = map(FlowRate,  0, MaxMotorFlowRate,       0,        100);   // THIS WILL GET THE MOTOR PERCENTAGE (0 RPM -> 0 ml/s, 80 RPM -> 2666.66ml/s) Calculated for 1000ml bellow
+  MotorSpeed  = map(FlowRate,  0, MaxMotorFlowRate,      50,        100);   // THIS WILL GET THE MOTOR PERCENTAGE (0 RPM -> 0 ml/s, 80 RPM -> 2666.66ml/s) Calculated for 1000ml bellow
    
   
 
@@ -65,9 +65,11 @@ debugger ();
    LoopTime = (millis() - StartTime);
 
    
+}
 
-
-
+void ReadPositionOnly()
+{
+  CurrentVolPos             = ads2.readADC_SingleEnded(0);
 }
 
 

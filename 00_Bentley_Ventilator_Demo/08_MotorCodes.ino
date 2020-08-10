@@ -37,7 +37,9 @@ while (LoopTime >= 0 && LoopTime <= InhaleTime)
     ReadPots();
 
     if (LoopTime > InhaleTime){
+      motor.stop();
       break;
+      
     }
   }
 
@@ -45,6 +47,7 @@ while (LoopTime >= 0 && LoopTime <= InhaleTime)
     
    // Grapher();
    if (StartButton == LOW){
+    
     break;
    }
 }
@@ -57,13 +60,15 @@ while (LoopTime > InhaleTime && LoopTime <= CycleTime) //EXHALING TIME
   Pos=3;
    ReadPots();
    
-  while (CurrentVolPos >= SetVolL - 500 && CurrentVolPos <= SetVolL + 500)
+//  while (CurrentVolPos >= SetVolL - 500 && CurrentVolPos <= SetVolL + 500)
+while (CurrentVolPos >= SetVolL)
   {
     motor.stop();
      Pos = 55;
       ReadPots();
 
     if (LoopTime > CycleTime){
+      motor.stop();
       break;
     }
   }
