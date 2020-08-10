@@ -5,10 +5,10 @@ void Motor()
  StartTime = millis();
  StartButton = digitalRead(StartButtonPin);
  Pos=11;
-// Grapher();
+
  //debugger ();
  ReadPots();
-   //PressureSensors();
+ 
 
 
 //THIS WILL SET THE LEFT AND RIGHT LOW POT POSITION OF THE WANTED VOLUME
@@ -19,70 +19,68 @@ void Motor()
    
 
 
-
-
-
-
-while (LoopTime >= 0 && LoopTime <= InhaleTime)
+  while (LoopTime >= 0 && LoopTime <= InhaleTime)
 {
-   digitalWrite(ExhaustSolenoidPin, HIGH); // CLOSE THE EXHUAST VAVLE
-
-   
- motor.rotate(50,CCW);
-    Pos =4;
-     ReadPots();
-  while (CurrentVolPos <= MinVolPos + 500 && CurrentVolPos >= MinVolPos - 500)
-  {
-    motor.stop();
-   // delay(1000);
-    Pos = 66;
-    ReadPots();
-
-    if (LoopTime > InhaleTime){
-      break;
-    }
-  }
-
-    
-    
-   // Grapher();
-   if (StartButton == LOW){
-    break;
-   }
+  MotorInhale ();
 }
+
 
 
 while (LoopTime > InhaleTime && LoopTime <= CycleTime) //EXHALING TIME
 {
-  motor.rotate(MotorSpeed,CW); //FILL THE BELLOW
-  digitalWrite(ExhaustSolenoidPin, LOW); //OPEN THE EXHAUST VALVE TO BREATH OUT
-
-  Pos=3;
-   ReadPots();
-  
- // Grapher();
-
-  while (CurrentVolPos >= SetVolL - 500 && CurrentVolPos <= SetVolL + 500)
-  {
-    motor.stop();
-     Pos = 55;
-      ReadPots();
-
-    if (LoopTime > CycleTime){
-      break;
-    }
+  ReadPots();
+  MotorReset();
+ 
+    Pos =4;
+   
   }
 
-  if (LoopTime >= CycleTime || AirwayPressure < TrigPressure  )
+
+  if (LoopTime >= CycleTime  )
 {
   LoopTime = 0.0;
  
 }
 
-if (StartButton == LOW){
-    break;
-   }
+}
+
+
+
+void MotorInhale ()
+{
+  
+  
+ motor.rotate(MotorSpeed,CW); //FILL THE BELLOW
+  
+  Pos=3;
+ ReadPots();
+   
+//  while (CurrentVolPos >= SetVolL - 500 && CurrentVolPos <= SetVolL + 500)
+while (CurrentVolPos >= SetVolL)
+  {
+    motor.stop();
+     Pos = 55;
+      ReadPots();
+
+    if (LoopTime > InhaleTime){
+      motor.stop();
+      break;
+    }
+     
+  }
 
 }
 
+void MotorExhale ()
+{
+   Pos = 66;
+   ReadPots();
+  motor.rotate(40,CCW);
+  
+ while (CurrentVolPos <= MinVolPos + 500 && CurrentVolPos >= MinVolPos - 500)
+  {
+    ReadPots();
+    motor.stop();
+  }
+  
 }

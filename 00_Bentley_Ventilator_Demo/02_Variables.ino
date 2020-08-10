@@ -1,8 +1,12 @@
 //-------------------------------UPDATABLE VARIABLES-----------------------------\\
 
-   float MinVolPos = 14880;  // INSERT THE PISTON BOTTOM MOST ANALOG VALUE
-   float MaxVolPosL = 18000;  // INSERT THE PISTON LEFT TOP ANALOG VALUE
-   float MaxVolPosR = 11000;  // INSERT THE PISTON RIGHT TOP ANALOG VALUE
+   float MinVolPos = 17500;  // INSERT THE PISTON BOTTOM MOST ANALOG VALUE
+
+    float CircleDiff = 3200;
+   float MaxVolPosL = MinVolPos + CircleDiff;  // INSERT THE PISTON LEFT TOP ANALOG VALUE
+   float MaxVolPosR = MinVolPos - CircleDiff;  // INSERT THE PISTON RIGHT TOP ANALOG VALUE
+
+  
 
    float    MaxSpeed   = 100.0; //INSERT THE MAX RPM OF THE BELLOW
    float InhaleTime = 500.0; // INSERT THE INHALATION DELAY

@@ -1,6 +1,6 @@
 void ReadPots(){
 
-   
+
    int ADCScale = 26000;    
    
   StartButton = digitalRead(StartButtonPin);
@@ -11,32 +11,23 @@ void ReadPots(){
   int16_t SetFlowRateRaw  = ads.readADC_SingleEnded(0);
 
   
-
-  
- // int16_t InhaleTimeRaw  = ads.readADC_SingleEnded(2);
-  
   CurrentVolPos             = ads2.readADC_SingleEnded(0);
 
 
   SetVolR = map(SetVolRaw, 0, ADCScale,  MaxVolPosR, MinVolPos);
   SetVolL = map(SetVolRaw, 0, ADCScale, MinVolPos, MaxVolPosL);
-  
+
+
 
 //--------MAPPING ------------\\
 
-  BPM         = map(BPMRaw,         0, ADCScale,  0,         30);                           // BREATHS PER MINUTE SETTING
-  Ratio       = map(RatioRaw,       0, ADCScale,  1,          4);                       // EXHALE RATIO
+  BPM         = map(BPMRaw,         0, ADCScale, 5 ,         15);                           // BREATHS PER MINUTE SETTING
+  Ratio       = map(RatioRaw,       0, ADCScale,  1,          3);                       // EXHALE RATIO
   FlowRate    = map(SetFlowRateRaw, 0, ADCScale, 0, MaxMotorFlowRate); //FLOWRATE IN ML/S
-
-
-  
-//  SetPEEPPressure = map(PEEPPressureRaw, 0, ADCScale, 0, 25);
 
 
  CycleTime = (60.0/BPM)*1000;
   
-  //------ IF IN INHALATION PRIORITY MODE, ENABLE THIS. -------\\
- // InhaleTime  = map(InhaleTimeRaw,  0, ADCScale,  500,        5000);      // INHALE TIME
 
    InhaleTime = CycleTime/(1+Ratio);
          
@@ -45,7 +36,7 @@ void ReadPots(){
   
  // FlowRate    = (DispVol/InhaleTime)*1000; //FLOWRATE IN ML/S
 
-  MotorSpeed  = map(FlowRate,  0, MaxMotorFlowRate,       0,        100);   // THIS WILL GET THE MOTOR PERCENTAGE (0 RPM -> 0 ml/s, 80 RPM -> 2666.66ml/s) Calculated for 1000ml bellow
+  MotorSpeed  = map(FlowRate,  0, MaxMotorFlowRate,      30,        100);   // THIS WILL GET THE MOTOR PERCENTAGE (0 RPM -> 0 ml/s, 80 RPM -> 2666.66ml/s) Calculated for 1000ml bellow
    
   
 
@@ -60,22 +51,20 @@ if (StartButton == LOW)
    digitalWrite(GreenLED, LOW);
 }
 
-//debugger ();
+debugger ();
 
    LoopTime = (millis() - StartTime);
 
-    MotorSpeedDisp ();
+   
+}
 
-    OMotorSpeed=MotorSpeed;
-ODispVol=DispVol;
-OInhaleTime=InhaleTime;
-ORatio=Ratio;
-OBPM=BPM;
-OFlowRate=FlowRate;
-
-OGraphMenu = GraphMenu;
-OPlotMenu =PlotMenu;
-
+void ReadPositionOnly()
+{
+  StartButton = digitalRead(StartButtonPin);
+  CurrentVolPos             = ads2.readADC_SingleEnded(0);
+  
+   LoopTime = (millis() - StartTime);
+   debugger ();
 }
 
 
