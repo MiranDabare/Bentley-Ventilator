@@ -12,6 +12,8 @@ void loop()
  // Grapher();
  ReadPots();
  MotorReset();
+// Grid();
+
 
  }
 

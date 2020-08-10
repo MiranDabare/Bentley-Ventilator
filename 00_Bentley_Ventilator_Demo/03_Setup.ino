@@ -13,7 +13,7 @@ void setup()
     if (ID == 0xD3D3) ID = 0x9486; // write-only shield
     tft.begin(ID);
     tft.setRotation(1);            //PORTRAIT
-    tft.fillScreen(BLACK);
+    tft.fillScreen(WHITE);
 
     tft.fillRect(0, 280, 480, 40,WHITE);
     tft.fillRect(140, 10, 190, 25, WHITE);
@@ -21,13 +21,13 @@ void setup()
     tft.setTextColor(BLACK); tft.setTextSize(2); // set parameters for y axis labels
     tft.print("Controller");  // "0" at center of ya axis
 
-    tft.fillRect(0, 0, 5, 280, BLACK);
+
 
   
 
-  tftDrawGraphObjects(); //draw graph objects
-
-  InitialCalculations();
+////  tftDrawGraphObjects(); //draw graph objects
+//
+//  InitialCalculations();
 
 //------------------- MOTOR SETUP-------------------------------\\
 
@@ -53,7 +53,7 @@ void setup()
    ReadPots();
    
   // MotorSetup();
-
+//Grid();
 
   Serial.println("Setup Done");
   
