@@ -2,43 +2,6 @@ void tftDrawGraphObjects()
 {
   //draw the graph objects
 
-  tft.drawFastVLine(30, 15, 320, WHITE); // y axis
-  tft.drawFastHLine(30, 278, 480, WHITE); // x axis
-  tft.setTextColor(YELLOW); tft.setTextSize(1); // set parameters for y axis labels
-
-    tft.fillRect(0, 280, 480, 40, WHITE);
-
- 
-  tft.setTextColor(YELLOW); tft.setTextSize(2); // set parameters for y axis labels
-  tft.fillRect(0, 40, 30, 240, BLACK);
-
-  for (int f = 40; f < 280; f=f+48) //FOR PLOTTING HORIZONTAL GRIDS
-{
-  tft.drawFastHLine(30, f, 480, GRAY); 
-
-   if (GraphMenu ==1)
-  { 
-    
-  tft.setCursor(3, f); tft.print((50 - (10*(f-40)/48)),1);  // "0" at center of ya axis
-  }
-
-  if (GraphMenu ==2)
-  { 
-       
-    tft.setTextSize(2);
-  tft.setCursor(3, f); tft.print((10 - (2*(f-40)/48)));  // "0" at center of ya axis
-  tft.setTextSize(1); tft.print("00");
-  }
-
-}
-
-tft.setTextSize(2); tft.setCursor(3, 265); tft.print("0");
-
-  for (int j = 78; j < 480; j = j+48)//FOR PLOTTING VERTICAL GRIDS
-  {
-    tft.drawFastVLine(j, 40, 240, GRAY); 
-        
-  }
 
 if (PlotMenu == 1)
 {

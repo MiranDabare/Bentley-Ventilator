@@ -11,7 +11,7 @@ void ReadPots(){
   int16_t SetFlowRateRaw  = ads.readADC_SingleEnded(0);
 
   
- // int16_t PEEPPressureRaw  = ads.readADC_SingleEnded(2);
+
   
  // int16_t InhaleTimeRaw  = ads.readADC_SingleEnded(2);
   
@@ -64,31 +64,21 @@ if (StartButton == LOW)
 
    LoopTime = (millis() - StartTime);
 
+    MotorSpeedDisp ();
 
+    OMotorSpeed=MotorSpeed;
+ODispVol=DispVol;
+OInhaleTime=InhaleTime;
+ORatio=Ratio;
+OBPM=BPM;
+OFlowRate=FlowRate;
 
-//PressureSensors();
-//Alarms();
+OGraphMenu = GraphMenu;
+OPlotMenu =PlotMenu;
 
 }
 
 
 
-
-
-/* --------- JUNK ----------------
- *  
- *  //GraphVolume = map(CurrentVolPos, MinVolPos, MaxVolPosR, 0, 1000);
- *   // currentpos              = ads.readADC_SingleEnded(0);
-   //highpos   = maxvolumepos; //IN THE MIDDLE OF THE POT
-  //lowposR    = highpos + (volumeval);
-  
-  //lowposL   = highpos - (volumeval); 
- // volume = minvolume + ((maxvolume - minvolume)*(volumeval/ADCScale));
-
-   //startbutton = HIGH;
-  //mspeed                  = ads.readADC_SingleEnded(0);
-  
- *  * 
- */
 
  

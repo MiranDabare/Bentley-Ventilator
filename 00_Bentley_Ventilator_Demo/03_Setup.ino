@@ -3,18 +3,7 @@ void setup()
 {
   
      Serial.begin(9600);
-         //------------ BMP 180 PRESSURE SENSOR SETUP -----------------\\
-  bool success = bmp180.begin();
 
-  if (success) {
-    Serial.println("BMP180 init success");
-  }
-
-
-
-
-
-  
     //delay(5000);// run for 5 seconds
     
     uint16_t ID = tft.readID();
@@ -30,7 +19,7 @@ void setup()
     tft.fillRect(140, 10, 190, 25, WHITE);
     tft.setCursor(150, 15); 
     tft.setTextColor(BLACK); tft.setTextSize(2); // set parameters for y axis labels
-    tft.print(GraphName);  // "0" at center of ya axis
+    tft.print("Controller");  // "0" at center of ya axis
 
     tft.fillRect(0, 0, 5, 280, BLACK);
 
@@ -38,7 +27,7 @@ void setup()
 
   tftDrawGraphObjects(); //draw graph objects
 
-InitialCalculations();
+  InitialCalculations();
 
 //------------------- MOTOR SETUP-------------------------------\\
 
@@ -62,11 +51,17 @@ InitialCalculations();
    motor.begin();   //starts the motor controller
    ads.begin();
    ReadPots();
-
-
    
-       
-    while (CurrentVolPos < MinVolPos){ // this returns the piston to the middle max position from the LHS
+  // MotorSetup();
+
+
+  Serial.println("Setup Done");
+  
+}
+
+void MotorSetup()
+{
+	while (CurrentVolPos < MinVolPos){ // this returns the piston to the middle max position from the LHS
     //  break;
      motor.rotate(50,CW);
      ReadPots();
@@ -98,13 +93,4 @@ InitialCalculations();
     }
         motor.stop();// stop the motor
      
-
-
-     
-
-
-
-
-  Serial.println("Setup Done");
-  
 }

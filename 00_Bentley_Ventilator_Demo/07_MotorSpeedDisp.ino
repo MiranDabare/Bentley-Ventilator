@@ -55,21 +55,10 @@ void MotorSpeedDisp ()
    tft.print(GraphName);  
    }
    
-   tft.fillRect(400, 30, 50, 40, WHITE);  
-   tft.setTextColor(BLUE); tft.setTextSize(2);
-   tft.setCursor(405, 35); tft.print(LoopTime);
+//   tft.fillRect(400, 30, 50, 40, WHITE);  
+//   tft.setTextColor(BLUE); tft.setTextSize(2);
+//   tft.setCursor(405, 35); tft.print(LoopTime);
    
-
-  for (int f = 40; f < 280; f=f+48) //FOR PLOTTING HORIZONTAL GRIDS
-  {
-    tft.drawFastHLine(30, f, 480, GRAY); 
-  }
-
-  for (int j = 78; j < 480; j = j+48)//FOR PLOTTING VERTICAL GRIDS
-  {
-    tft.drawFastVLine(j, 40, 240, GRAY); 
-  }
-
 
 }
 
@@ -127,21 +116,10 @@ void MotorSpeedDisp ()
    tft.print(GraphName);  
    }
    
-   tft.fillRect(400, 30, 50, 40, WHITE);  
-   tft.setTextColor(BLUE); tft.setTextSize(2);
-   tft.setCursor(405, 35); tft.print(LoopTime);
-   
-
-  for (int f = 40; f < 280; f=f+48) //FOR PLOTTING HORIZONTAL GRIDS
-  {
-    tft.drawFastHLine(30, f, 480, GRAY); 
-  }
-
-  for (int j = 78; j < 480; j = j+48)//FOR PLOTTING VERTICAL GRIDS
-  {
-    tft.drawFastVLine(j, 40, 240, GRAY); 
-  }
-
+//   tft.fillRect(400, 30, 50, 40, WHITE);  
+//   tft.setTextColor(BLUE); tft.setTextSize(2);
+//   tft.setCursor(405, 35); tft.print(LoopTime);
+//   
 
 }
 

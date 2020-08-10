@@ -1,16 +1,15 @@
 void Alarms(){
 
-  HighPressureError();
-  LowPressureError();
+
   MotorStarted ();
   MotorStopped ();
 
-         if ((cleared == 2 && AirwayPressureO > LowPressureWarn)||(cleared == 1 && AirwayPressure < HighPressureWarn))
-        {        
-          tft.fillRect(60,100, 350,70, BLACK);
-          cleared = 0;
-        
-        }
+  if ((cleared == 2 && AirwayPressureO > LowPressureWarn)||(cleared == 1 && AirwayPressure < HighPressureWarn))
+  {
+    tft.fillRect(60,100, 350,70, BLACK);
+    cleared = 0;
+    
+   }
 
 
   
